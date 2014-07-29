@@ -34,4 +34,4 @@ php -S 0.0.0.0:8000 -t public_html/
 ```
 
 ## Utilização
-Você pode ordenar a tabela de clientes clicando nos títulos disponíveis (ID, Nome e Cidade)
+Você pode ordenar a tabela de clientes clicando nos títulos disponíveis (ID, Nome, Classificação e PJ)

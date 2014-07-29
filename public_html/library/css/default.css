@@ -13,7 +13,6 @@ table thead td {
     font-weight: bold;
     background-color: gray;
     color: white;
-    text-align: center;
 }
 
 table thead td:hover {
@@ -31,4 +30,8 @@ table thead td:hover {
 
 .container .text-muted {
   margin: 20px 0;
+}
+
+.no-show {
+    color: transparent;
 }
