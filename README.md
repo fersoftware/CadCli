@@ -1,19 +1,26 @@
 # Programação Orientada a Objetos
 
+### Cadastro de Clientes
 Site desenvolvido utilizando POO
 
 
-# Instruções
-Você pode utilizar tanto o **servidor embutido do PHP 5.4+** quanto o **virtual host do Apache 2.4**.
+## Instruções
 
-## Servidor embutido do PHP 5.4+
-
+### Instalação
 ```
+git clone https://github.com/brunowerneck/POO.git poo
+```
+
+### Execução
+Para executar o sistema, você pode utilizar tanto o **servidor embutido do PHP 5.4+** quanto o **virtual host do Apache 2.4**.
+
+### Servidor embutido do PHP 5.4+
+```
+cd poo
 php -S 0.0.0.0:8000 -t public_html/
 ```
 
-## Virtualhost do Apache 2.4
-
+### Virtualhost do Apache 2.4
 ```
 <Virtualhost *:80>
   DocumentRoot "/caminho/do/seu/public_html"
@@ -26,5 +33,5 @@ php -S 0.0.0.0:8000 -t public_html/
 </Virtualhost>
 ```
 
-# Utilização
-Você pode ordenar a tabela de clientes clicando nos títulos disponíveis (ID, Nome e Cidade
+## Utilização
+Você pode ordenar a tabela de clientes clicando nos títulos disponíveis (ID, Nome e Cidade)

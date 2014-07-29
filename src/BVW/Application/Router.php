@@ -10,6 +10,13 @@ class Router
         $this->routes = $routes;
     }
     
+    public function setRoutes(array $routes = array())
+    {
+        $this->routes = $routes;
+        
+        return $this;
+    }
+    
     public static function getCurrentRoute()
     {
         $currentRoute = explode("/", substr($_SERVER["REQUEST_URI"],1));

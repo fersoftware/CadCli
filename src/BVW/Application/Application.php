@@ -10,11 +10,11 @@ class Application
     private $router;
     private $view;
     
-    public function __construct()
+    public function __construct(Router $router, View $view)
     {
         $this->config = parse_ini_file(__DIR__."/Config/parameters.ini", true);
-        $this->router = new Router($this->config["routes"]);
-        $this->view = new View();
+        $this->router = $router->setRoutes($this->getConfig("routes"));
+        $this->view = $view;
     }
     
     public function getConfig($index)

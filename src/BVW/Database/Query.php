@@ -28,7 +28,11 @@ class Query
     
     public function noReturnQuery($sql, array $params)
     {
-        $this->returnQuery($sql, $params);
+        $stmt = $this->conn->prepare($sql);
+        if (!$stmt->execute($params)) {
+            print_r($sql);
+            die(print_r($stmt->errorInfo()));
+        }
         
         return true;
     }
