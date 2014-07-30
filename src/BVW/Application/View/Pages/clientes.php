@@ -18,6 +18,7 @@ $clientesArr[] = $cliente;
 
 $cliente = new PessoaFisica(3, "João", "da Silva", "432.127.612-88", "(31) 3222-2222");
 $cliente->addTelefone(new Telefone(2, "31", "3222", "2222"))
+        ->addTelefone(new Telefone(5, "31", "3222", "3333"))
         ->addEndereco(new Endereco("Av. Barbacena", 679, null, "Centro", "Belo Horizonte", "MG", "30190-130"));
 
 $clientesArr[] = $cliente;
@@ -76,6 +77,7 @@ if (isset($routeParts[1])) {
                             if ($telefone->getRamal() !== null) {
                                 echo " : Ramal {$telefone->getRamal()}";
                             }
+                            echo "<br />";
                         }
                     ?>
                 </p>
