@@ -2,9 +2,10 @@
 session_start();
 require_once(__DIR__."/../vendor/autoload.php");
 
-$router = new \BVW\Application\Router();
-$view = new BVW\Application\View\View();
+use BVW\Application\Router;
+use BVW\Application\View\View;
+use BVW\Application\Application;
 
-$app = new \BVW\Application\Application($router, $view);
+$app = new Application(new Router(), new View());
 
 $app->run();

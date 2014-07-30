@@ -1,14 +1,14 @@
-# Programação Orientada a Objetos
+# Cadastro de Clientes
 
-### Cadastro de Clientes
-Site desenvolvido utilizando POO
+### POO
+Aplicação desenvolvida utilizando técnicas de Programação Orientada a Objetos.
 
 
 ## Instruções
 
 ### Instalação
 ```
-git clone https://github.com/brunowerneck/POO.git poo
+git clone https://github.com/brunowerneck/CadCli.git cadcli
 ```
 
 ### Execução
@@ -16,7 +16,7 @@ Para executar o sistema, você pode utilizar tanto o **servidor embutido do PHP 
 
 ### Servidor embutido do PHP 5.4+
 ```
-cd poo
+cd cadcli
 php -S 0.0.0.0:8000 -t public_html/
 ```
 

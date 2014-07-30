@@ -3,6 +3,7 @@ namespace BVW\Cliente;
 
 use BVW\Cliente\ClienteInterface;
 use BVW\Cliente\Endereco;
+use BVW\Cliente\Telefone;
 
 class PessoaFisica implements ClienteInterface
 {
@@ -10,17 +11,16 @@ class PessoaFisica implements ClienteInterface
     private $nome;
     private $sobrenome;
     private $cpf;    
-    private $telefone;    
     private $stars = 1;
     private $enderecos = array();
+    private $telefones = array();
     
-    public function __construct($id, $nome, $sobrenome, $cpf, $telefone)
+    public function __construct($id, $nome, $sobrenome, $cpf)
     {
         $this->setId($id)
             ->setNome($nome)
             ->setSobrenome($sobrenome)
             ->setCpf($cpf)
-            ->setTelefone($telefone)
         ;
     }
     
@@ -44,9 +44,9 @@ class PessoaFisica implements ClienteInterface
         return $this->cpf;
     }
 
-    public function getTelefone()
+    public function getTelefones()
     {
-        return $this->telefone;
+        return $this->telefones;
     }
     
     public function getEnderecos()
@@ -82,11 +82,16 @@ class PessoaFisica implements ClienteInterface
         return $this;
     }
 
-    public function setTelefone($telefone)
+    public function addTelefone(Telefone $telefone)
     {
-        $this->telefone = $telefone;
+        $this->telefones[] = $telefone;
 
         return $this;
+    }
+    
+    public function hasTelefone()
+    {
+        return count($this->telefones) > 0 ? true : false;
     }
     
     public function addEndereco(Endereco $endereco)
@@ -94,6 +99,11 @@ class PessoaFisica implements ClienteInterface
         $this->enderecos[] = $endereco;
         
         return $this;
+    }
+    
+    public function hasEndereco()
+    {
+        return count($this->enderecos) > 0 ? true : false;
     }
 
     public function isPJ()
@@ -103,13 +113,13 @@ class PessoaFisica implements ClienteInterface
 
     public function setStars($stars)
     {
-        if ($stars > 5) {
+        if ((int) $stars > 5) {
             $stars = 5;
-        } elseif ($stars < 1) {
+        } elseif ((int) $stars < 1) {
             $stars = 1;
         }
         
-        $this->stars = $stars;
+        $this->stars = (int) $stars;
         
         return $this;
     }

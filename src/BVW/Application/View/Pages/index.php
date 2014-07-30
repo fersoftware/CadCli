@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="page-header">
-            <h3>Programação Orientada a Objetos</h3>
+            <h3>Cadastro de Clientes</h3>
         </div>
     </div>
     <div class="row">

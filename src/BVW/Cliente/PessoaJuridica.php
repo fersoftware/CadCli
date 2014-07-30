@@ -3,6 +3,7 @@ namespace BVW\Cliente;
 
 use BVW\Cliente\ClienteInterface;
 use BVW\Cliente\Endereco;
+use BVW\Cliente\Telefone;
 
 class PessoaJuridica implements ClienteInterface
 {
@@ -11,18 +12,18 @@ class PessoaJuridica implements ClienteInterface
     private $razaoSocial;
     private $cnpj;
     private $contato;
-    private $telefone;
+    private $telefones = array();
     private $enderecos = array();
     private $stars = 1;    
     
-    public function __construct($id, $nomeFantasia, $razaoSocial, $cnpj, $contato, $telefone)
+    public function __construct($id, $nomeFantasia, $razaoSocial, $cnpj, $contato)
     {
-        $this->id = $id;
-        $this->nomeFantasia = $nomeFantasia;
-        $this->razaoSocial = $razaoSocial;
-        $this->cnpj = $cnpj;
-        $this->contato = $contato;
-        $this->telefone = $telefone;
+        $this->setId($id)
+            ->setNomeFantasia($nomeFantasia)
+            ->setRazaoSocial($razaoSocial)
+            ->setCnpj($cnpj)
+            ->setContato($contato)
+        ;
     }
     
     public function getId()
@@ -50,9 +51,9 @@ class PessoaJuridica implements ClienteInterface
         return $this->contato;
     }
 
-    public function getTelefone()
+    public function getTelefones()
     {
-        return $this->telefone;
+        return $this->telefones;
     }
 
     public function setId($id)
@@ -102,11 +103,28 @@ class PessoaJuridica implements ClienteInterface
         return $this->enderecos;
     }
     
+    public function addTelefone(Telefone $telefone)
+    {
+        $this->telefones[] = $telefone;
+        
+        return $this;
+    }
+    
+    public function hasTelefone()
+    {
+        return count($this->telefones) > 0 ? true : false;
+    }
+    
     public function addEndereco(Endereco $endereco)
     {
         $this->enderecos[] = $endereco;
         
         return $this;
+    }
+    
+    public function hasEndereco()
+    {
+        return count($this->enderecos) > 0 ? true : false;
     }
 
     public function isPJ()
@@ -116,13 +134,13 @@ class PessoaJuridica implements ClienteInterface
 
     public function setStars($stars)
     {
-        if ($stars > 5) {
+        if ((int) $stars > 5) {
             $stars = 5;
-        } elseif ($stars < 1) {
+        } elseif ((int) $stars < 1) {
             $stars = 1;
         }
         
-        $this->stars = $stars;
+        $this->stars = (int) $stars;
         
         return $this;
     }

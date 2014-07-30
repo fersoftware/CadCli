@@ -15,13 +15,13 @@ class Endereco
     public function __construct($logradouro, $numero, $complemento, $bairro, $cidade, $uf, $cep, $isBillingAddress = false)
     {
         $this->setLogradouro($logradouro)
-                ->setNumero($numero)
-                ->setComplemento($complemento)
-                ->setBairro($bairro)
-                ->setCidade($cidade)
-                ->setUf($uf)
-                ->setCep($cep)
-                ->setIsBillingAddress($isBillingAddress);
+            ->setNumero($numero)
+            ->setComplemento($complemento)
+            ->setBairro($bairro)
+            ->setCidade($cidade)
+            ->setUf($uf)
+            ->setCep($cep)
+            ->setIsBillingAddress($isBillingAddress);
     }
     
     public function getLogradouro()
