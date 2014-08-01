@@ -22,9 +22,7 @@ class Router
         $currentRoute = explode("/", substr($_SERVER["REQUEST_URI"],1));
         if ($currentRoute[0] == null) {
             return "/";
-        } elseif ($currentRoute[0] == "clientes") {
-            return "clientes";
-        }
+        } 
         
         return $currentRoute[0];
     }
