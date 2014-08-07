@@ -14,7 +14,7 @@
                     <?php
                     $telefones = $cliente->getTelefones();
                     foreach ($telefones as $telefone) {
-                        echo "({$telefone->getDdd()}) {$telefone->getNumero1()}-{$telefone->getNumero2()}";
+                        echo "({$telefone->getDdd()}) {$telefone->getPrefixo()}-{$telefone->getSufixo()}";
                         if ($telefone->getRamal() !== null) {
                             echo " : Ramal {$telefone->getRamal()}";
                         }

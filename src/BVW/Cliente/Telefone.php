@@ -5,19 +5,9 @@ class Telefone
 {
     private $id;
     private $ddd;
-    private $numero1;
-    private $numero2;
+    private $prefixo;
+    private $sufixo;
     private $ramal;
-    
-    public function __construct($id, $ddd, $numero1, $numero2, $ramal = null)
-    {
-        $this->setId($id)
-            ->setDdd($ddd)
-            ->setNumero1($numero1)
-            ->setNumero2($numero2)
-            ->setRamal($ramal)
-        ;
-    }
     
     public function setId($id)
     {
@@ -43,28 +33,28 @@ class Telefone
         return $this->ddd;
     }
     
-    public function setNumero1($numero1)
+    public function setPrefixo($prefixo)
     {
-        $this->numero1 = $numero1;
+        $this->prefixo = $prefixo;
         
         return $this;
     }
     
-    public function getNumero1()
+    public function getPrefixo()
     {
-        return $this->numero1;
+        return $this->prefixo;
     }
     
-    public function setNumero2($numero2)
+    public function setSufixo($sufixo)
     {
-        $this->numero2 = $numero2;
+        $this->sufixo = $sufixo;
         
         return $this;
     }
     
-    public function getNumero2()
+    public function getSufixo()
     {
-        return $this->numero2;
+        return $this->sufixo;
     }
     
     public function setRamal($ramal)

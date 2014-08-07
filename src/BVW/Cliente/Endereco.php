@@ -3,6 +3,7 @@ namespace BVW\Cliente;
 
 class Endereco
 {
+    private $id;
     private $logradouro;
     private $numero;
     private $complemento;
@@ -12,16 +13,9 @@ class Endereco
     private $cep;
     private $isBillingAddress = false;
     
-    public function __construct($logradouro, $numero, $complemento, $bairro, $cidade, $uf, $cep, $isBillingAddress = false)
+    public function getId()
     {
-        $this->setLogradouro($logradouro)
-            ->setNumero($numero)
-            ->setComplemento($complemento)
-            ->setBairro($bairro)
-            ->setCidade($cidade)
-            ->setUf($uf)
-            ->setCep($cep)
-            ->setIsBillingAddress($isBillingAddress);
+        return $this->id;
     }
     
     public function getLogradouro()
@@ -62,6 +56,13 @@ class Endereco
     public function isBillingAddress()
     {
         return $this->isBillingAddress;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
     }
     
     public function setLogradouro($logradouro)

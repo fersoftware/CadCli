@@ -16,16 +16,6 @@ class PessoaJuridica implements ClienteInterface
     private $enderecos = array();
     private $stars = 1;    
     
-    public function __construct($id, $nomeFantasia, $razaoSocial, $cnpj, $contato)
-    {
-        $this->setId($id)
-            ->setNomeFantasia($nomeFantasia)
-            ->setRazaoSocial($razaoSocial)
-            ->setCnpj($cnpj)
-            ->setContato($contato)
-        ;
-    }
-    
     public function getId()
     {
         return $this->id;

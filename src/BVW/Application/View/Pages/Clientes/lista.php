@@ -21,8 +21,9 @@
                 <tbody>
                     <?php
                     foreach ($clientesArr as $key => $cliente) {
+                        $id = $key + 1;
                         echo "<tr>";
-                        echo "<td>{$cliente->getId()}</td>";
+                        echo "<td>" . $id . "</td>";
                         if (!$cliente->isPJ()) {
                             echo "<td>{$cliente->getNome()} {$cliente->getSobrenome()}</td>";
                         } else {

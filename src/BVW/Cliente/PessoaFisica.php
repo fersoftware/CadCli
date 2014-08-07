@@ -15,15 +15,6 @@ class PessoaFisica implements ClienteInterface
     private $enderecos = array();
     private $telefones = array();
     
-    public function __construct($id, $nome, $sobrenome, $cpf)
-    {
-        $this->setId($id)
-            ->setNome($nome)
-            ->setSobrenome($sobrenome)
-            ->setCpf($cpf)
-        ;
-    }
-    
     public function getId()
     {
         return $this->id;
