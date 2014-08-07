@@ -26,7 +26,7 @@ class TelefoneFactory
             ->setRamal($ramal)
         ;
         // TODO: save in database
-        // TODO: attribute id to $end
+        // TODO: attribute id to $tel
         // TODO: relate telefone to cliente
         $cliente->addTelefone($tel);
         
