@@ -12,6 +12,7 @@ class Endereco
     private $uf;
     private $cep;
     private $isBillingAddress = false;
+    private $cliente_id;
     
     public function getId()
     {
@@ -51,6 +52,11 @@ class Endereco
     public function getCep()
     {
         return $this->cep;
+    }
+    
+    public function getCliente_id()
+    {
+        return $this->cliente_id;
     }
     
     public function isBillingAddress()
@@ -117,6 +123,13 @@ class Endereco
     public function setIsBillingAddress($bool)
     {
         $this->isBillingAddress = (bool) $bool;
+        
+        return $this;
+    }
+    
+    public function setCliente_id($cliente_id)
+    {
+        $this->cliente_id = $cliente_id;
         
         return $this;
     }

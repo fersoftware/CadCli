@@ -8,6 +8,7 @@ class Telefone
     private $prefixo;
     private $sufixo;
     private $ramal;
+    private $cliente_id;
     
     public function setId($id)
     {
@@ -68,4 +69,16 @@ class Telefone
     {
         return $this->ramal;
     }    
+    
+    public function setCliente_id($cliente_id)
+    {
+        $this->cliente_id = $cliente_id;
+        
+        return $this;
+    }
+    
+    public function getCliente_id()
+    {
+        return $this->cliente_id;
+    }
 }

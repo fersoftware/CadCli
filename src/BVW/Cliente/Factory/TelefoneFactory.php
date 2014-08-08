@@ -15,7 +15,7 @@ class TelefoneFactory
      * @param string|int $sufixo
      * @param string|int $ramal
      * @param ClienteInterface $cliente
-     * @return ClienteInterface
+     * @return Telefone
      */
     public static function create($ddd, $prefixo, $sufixo, $ramal, ClienteInterface $cliente)
     {
@@ -24,12 +24,11 @@ class TelefoneFactory
             ->setPrefixo($prefixo)
             ->setSufixo($sufixo)
             ->setRamal($ramal)
+            ->setCliente_id($cliente->getId())
         ;
         // TODO: save in database
         // TODO: attribute id to $tel
-        // TODO: relate telefone to cliente
-        $cliente->addTelefone($tel);
         
-        return $cliente;
+        return $tel;
     }
 }

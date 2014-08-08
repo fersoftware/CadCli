@@ -19,7 +19,7 @@ class EnderecoFactory
      * @param string $cep
      * @param boolean $isBillingAddress
      * @param ClienteInterface $cliente
-     * @return ClienteInterface
+     * @return Endereco
      */
     public static function create($logradouro, $numero, $complemento, $bairro, $cidade, $uf, $cep, $isBillingAddress, ClienteInterface $cliente)
     {
@@ -32,12 +32,11 @@ class EnderecoFactory
             ->setUf($uf)
             ->setCep($cep)
             ->setIsBillingAddress($isBillingAddress)
+            ->setCliente_id($cliente->getId())
         ;
         // TODO: save in database
         // TODO: attribute id to $end
-        // TODO: relate endereco to cliente
-        $cliente->addEndereco($end);
         
-        return $cliente;
+        return $end;
     }
 }
