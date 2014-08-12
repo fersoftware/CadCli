@@ -9,6 +9,8 @@ Aplicação desenvolvida utilizando técnicas de Programação Orientada a Objet
 ### Instalação
 ```
 git clone https://github.com/brunowerneck/CadCli.git cadcli
+cd cadcli/public_html
+php fixtures.php
 ```
 
 ### Execução
