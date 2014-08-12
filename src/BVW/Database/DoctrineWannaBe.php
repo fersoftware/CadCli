@@ -44,7 +44,6 @@ class DoctrineWannaBe
                     "stars"     => $cliente->getStars()
                 ));
                 $cliente->setId($this->pdo->lastInsertId());
-                $cstmt->closeCursor();
             }
             $enderecos = $cliente->getEnderecos();
             if (count($enderecos) > 0) {
