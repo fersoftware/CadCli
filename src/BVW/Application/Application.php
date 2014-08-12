@@ -6,20 +6,20 @@ use BVW\Application\View\View;
 
 class Application 
 {
-    private $config = array();
+    private static $config = array();
     private $router;
     private $view;
     
     public function __construct(Router $router, View $view)
     {
-        $this->config = parse_ini_file(__DIR__."/Config/parameters.ini", true);
-        $this->router = $router->setRoutes($this->getConfig("routes"));
+        self::$config = parse_ini_file(__DIR__."/Config/parameters.ini", true);
+        $this->router = $router->setRoutes(self::getConfig("routes"));
         $this->view = $view;
     }
     
-    public function getConfig($index)
+    public static function getConfig($index)
     {
-        return $this->config[$index];
+        return self::$config[$index];
     }
     
     public function run()
