@@ -14,6 +14,77 @@ use BVW\Cliente\Factory\TelefoneFactory;
 $app = new Application(new Router(), new View());
 $connection = new Connection(Application::getConfig("database"));
 $query = new Query($connection);
+
+
+// Criar tabelas
+
+$sql = "CREATE SCHEMA IF NOT EXISTS `cadcli` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+USE `cadcli` ;";
+$query->noReturnQuery($sql, array());
+$sql = "DROP TABLE IF EXISTS `cadcli`.`Clientes` ;
+
+CREATE TABLE IF NOT EXISTS `cadcli`.`Clientes` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `sobrenome` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `cpf` VARCHAR(14) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `nomeFantasia` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `razaoSocial` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `cnpj` VARCHAR(18) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `contato` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `stars` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 170
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_unicode_ci;";
+$query->noReturnQuery($sql, array());
+$sql = "DROP TABLE IF EXISTS `cadcli`.`Telefones` ;
+
+CREATE TABLE IF NOT EXISTS `cadcli`.`Telefones` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL,
+  `ddd` INT(11) NOT NULL,
+  `prefixo` INT(11) NOT NULL,
+  `sufixo` INT(11) NOT NULL,
+  `ramal` INT(11) NULL DEFAULT NULL,
+  `Clientes_id` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`, `Clientes_id`),
+  INDEX `fk_Telefones_Clientes_idx` (`Clientes_id` ASC),
+  CONSTRAINT `fk_Telefones_Clientes`
+    FOREIGN KEY (`Clientes_id`)
+    REFERENCES `cadcli`.`Clientes` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 31
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_unicode_ci;";
+$query->noReturnQuery($sql, array());
+$sql = "DROP TABLE IF EXISTS `cadcli`.`Enderecos` ;
+
+CREATE TABLE IF NOT EXISTS `cadcli`.`Enderecos` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `logradouro` VARCHAR(255) NOT NULL,
+  `numero` VARCHAR(45) NULL,
+  `complemento` VARCHAR(45) NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `cidade` VARCHAR(100) NOT NULL,
+  `uf` VARCHAR(2) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
+  `isBillingAddress` TINYINT(1) NOT NULL,
+  `Clientes_id` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`, `Clientes_id`),
+  INDEX `fk_Enderecos_Clientes1_idx` (`Clientes_id` ASC),
+  CONSTRAINT `fk_Enderecos_Clientes1`
+    FOREIGN KEY (`Clientes_id`)
+    REFERENCES `cadcli`.`Clientes` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;";
+$query->noReturnQuery($sql, array());
+
+// Entrada de Dados
 $cFactory = new ClienteFactory($query);
 $eFactory = new EnderecoFactory($query);
 $tFactory = new TelefoneFactory($query);
