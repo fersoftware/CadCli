@@ -21,7 +21,7 @@ $query = new Query($connection);
 $sql = "CREATE SCHEMA IF NOT EXISTS `cadcli` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 USE `cadcli` ;";
 $query->noReturnQuery($sql, array());
-$sql = "DROP TABLE IF EXISTS `cadcli`.`Clientes` ;
+$sql = "DROP TABLE IF EXISTS `cadcli`.`Telefones` ; DROP TABLE IF EXISTS `cadcli`.`Enderecos` ; DROP TABLE IF EXISTS `cadcli`.`Clientes` ;
 
 CREATE TABLE IF NOT EXISTS `cadcli`.`Clientes` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -37,9 +37,7 @@ CREATE TABLE IF NOT EXISTS `cadcli`.`Clientes` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 170
 DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;";
-$query->noReturnQuery($sql, array());
-$sql = "DROP TABLE IF EXISTS `cadcli`.`Telefones` ;
+COLLATE = utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `cadcli`.`Telefones` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -59,9 +57,7 @@ CREATE TABLE IF NOT EXISTS `cadcli`.`Telefones` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 31
 DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;";
-$query->noReturnQuery($sql, array());
-$sql = "DROP TABLE IF EXISTS `cadcli`.`Enderecos` ;
+COLLATE = utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `cadcli`.`Enderecos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
