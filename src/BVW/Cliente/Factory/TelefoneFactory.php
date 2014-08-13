@@ -2,7 +2,6 @@
 
 namespace BVW\Cliente\Factory;
 
-use BVW\Database\Query;
 use BVW\Cliente\Telefone;
 use BVW\Cliente\ClienteInterface;
 
