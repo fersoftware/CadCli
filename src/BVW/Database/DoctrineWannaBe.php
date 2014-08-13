@@ -70,10 +70,10 @@ class DoctrineWannaBe
                     $tSQL = "INSERT INTO Telefones(ddd, prefixo, sufixo, ramal, Clientes_id) VALUES(:ddd, :prefixo, :sufixo, :ramal, :Clientes_id)";
                     $tstmt = $this->pdo->prepare($tSQL);
                     $tstmt->execute(array(
-                        "ddd"        => $telefone->getDdd(),
-                        "prefixo"    => $telefone->getPrefixo(),
-                        "sufixo"     => $telefone->getSufixo(),
-                        "ramal"      => $telefone->getRamal(),
+                        "ddd"         => $telefone->getDdd(),
+                        "prefixo"     => $telefone->getPrefixo(),
+                        "sufixo"      => $telefone->getSufixo(),
+                        "ramal"       => $telefone->getRamal(),
                         "Clientes_id" => $cliente->getId()
                     ));
                 }

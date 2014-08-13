@@ -79,9 +79,9 @@ ENGINE = InnoDB;";
 $query->noReturnQuery($sql, array());
 
 // Entrada de Dados
-$cFactory = new ClienteFactory($query);
-$eFactory = new EnderecoFactory($query);
-$tFactory = new TelefoneFactory($query);
+$cFactory = new ClienteFactory();
+$eFactory = new EnderecoFactory();
+$tFactory = new TelefoneFactory();
 
 $doctrine = new DoctrineWannaBe($connection);
 

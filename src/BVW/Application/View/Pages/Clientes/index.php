@@ -7,12 +7,18 @@ use BVW\Database\Query;
 use BVW\Cliente\Factory\ClienteFactory;
 use BVW\Cliente\Factory\EnderecoFactory;
 use BVW\Cliente\Factory\TelefoneFactory;
+use BVW\Cliente\Repository\ClienteRepository;
+use BVW\Cliente\Repository\EnderecoRepository;
+use BVW\Cliente\Repository\TelefoneRepository;
 
 $connection = new Connection(Application::getConfig("database"));
 $query = new Query($connection);
-$cFactory = new ClienteFactory($query);
-$eFactory = new EnderecoFactory($query);
-$tFactory = new TelefoneFactory($query);
+$cFactory = new ClienteFactory();
+$eFactory = new EnderecoFactory();
+$tFactory = new TelefoneFactory();
+$cRepo = new ClienteRepository($cFactory, $query);
+$eRepo = new EnderecoRepository($eFactory, $query);
+$tRepo = new TelefoneRepository($tFactory, $query);
 
 $fullRoute = Router::getFullRoute();
 $routeParts = explode("/", $fullRoute);
@@ -21,17 +27,17 @@ if (isset($routeParts[1])) {
     if ($routeParts[1] == "novo") {
         // TODO: novo cliente
     } else {
-        $cliente = $cFactory->findById($routeParts[1]);
-        if (null == $cliente) {
+        $cliente = $cRepo->findById($routeParts[1]);
+        if (false === $cliente) {
             // Cliente não encontrado
             include(__DIR__."/404.php");
         } else {
             // Detalhar Cliente   
-            $telefones = $tFactory->findAllByClienteId($cliente);
+            $telefones = $tRepo->findAllByClienteId($cliente);
             foreach ($telefones as $telefone) {
                 $cliente->addTelefone($telefone);
             }
-            $enderecos = $eFactory->findAllByClienteId($cliente);
+            $enderecos = $eRepo->findAllByClienteId($cliente);
             foreach ($enderecos as $endereco) {
                 $cliente->addEndereco($endereco);
             }
@@ -40,6 +46,6 @@ if (isset($routeParts[1])) {
     }
 } else {
     // Mostrar lista de Clientes
-    $clientesArr = $cFactory->findAll();
+    $clientesArr = $cRepo->findAll();
     include(__DIR__ . "/lista.php");
 }
