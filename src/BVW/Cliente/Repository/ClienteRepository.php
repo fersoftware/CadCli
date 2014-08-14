@@ -56,13 +56,14 @@ class ClienteRepository
     {
         $sql = "SELECT * FROM Clientes WHERE id = :id";
         $cliente = $this->query->returnQuery($sql, array("id" => $id));
-        
-        if (null != $cliente["cpf"]) {
-                        
-            return $this->setPF($cliente);
-        } else {
-            
-            return $this->setPJ($cliente);
+        if (false !== $cliente) {
+            if (null != $cliente["cpf"]) {
+
+                return $this->setPF($cliente);
+            } else {
+
+                return $this->setPJ($cliente);
+            }
         }
         
         return false;
