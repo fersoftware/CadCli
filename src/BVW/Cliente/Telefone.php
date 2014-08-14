@@ -1,7 +1,9 @@
 <?php
 namespace BVW\Cliente;
 
-class Telefone
+use BVW\Cliente\Interfaces\TelefoneInterface;
+
+class Telefone implements TelefoneInterface
 {
     private $id;
     private $ddd;

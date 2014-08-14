@@ -3,7 +3,7 @@
 namespace BVW\Cliente\Factory;
 
 use BVW\Cliente\Endereco;
-use BVW\Cliente\ClienteInterface;
+use BVW\Cliente\Interfaces\ClienteInterface;
 
 class EnderecoFactory
 {

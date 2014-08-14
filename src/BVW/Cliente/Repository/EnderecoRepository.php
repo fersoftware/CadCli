@@ -2,7 +2,7 @@
 
 namespace BVW\Cliente\Repository;
 
-use BVW\Cliente\ClienteInterface;
+use BVW\Cliente\Interfaces\ClienteInterface;
 use BVW\Cliente\Factory\EnderecoFactory;
 use BVW\Database\Query;
 

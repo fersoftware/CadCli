@@ -3,7 +3,7 @@
 namespace BVW\Cliente\Factory;
 
 use BVW\Cliente\Telefone;
-use BVW\Cliente\ClienteInterface;
+use BVW\Cliente\Interfaces\ClienteInterface;
 
 class TelefoneFactory
 {

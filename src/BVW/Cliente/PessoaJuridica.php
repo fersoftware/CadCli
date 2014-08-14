@@ -1,7 +1,7 @@
 <?php
 namespace BVW\Cliente;
 
-use BVW\Cliente\ClienteInterface;
+use BVW\Cliente\Interfaces\ClienteInterface;
 use BVW\Cliente\Endereco;
 use BVW\Cliente\Telefone;
 

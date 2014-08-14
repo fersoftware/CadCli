@@ -1,7 +1,9 @@
 <?php
 namespace BVW\Cliente;
 
-class Endereco
+use BVW\Cliente\Interfaces\EnderecoInterface;
+
+class Endereco implements EnderecoInterface
 {
     private $id;
     private $logradouro;
