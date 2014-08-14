@@ -3,7 +3,7 @@
 namespace BVW\Database;
 
 use BVW\Database\Connection;
-use BVW\Cliente\ClienteInterface;
+use BVW\Cliente\Interfaces\ClienteInterface;
 
 class DoctrineWannaBe
 {
